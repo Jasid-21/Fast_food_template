@@ -1,11 +1,8 @@
 {
   "links": [
-    { "name": "Link 1", "url": "/" },
-    { "name": "LinkName", "url": "/url_1" },
-    { "name": "LinkName", "url": "/url_2" },
-    { "name": "LinkName", "url": "/url_3" },
-    { "name": "LinkName", "url": "/url_4" },
-    { "name": "LinkName", "url": "/url_5" },
-    { "name": "LinkName", "url": "/url_6" }
+    { "name": "Home", "url": "/" },
+    { "name": "Catalog", "url": "/catalog" },
+    { "name": "About", "url": "/about" },
+    { "name": "Services", "url": "/services" }
   ]
 }

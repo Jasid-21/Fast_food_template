@@ -1,27 +1,29 @@
 <template>
-  <nav class="navbar central-logo-navbar">
-    <ul class="link-items">
-      <li class="link-item" v-for="(l, idx) of leftLinks" :key="idx">
-        <RouterLink :to="l.url">{{ l.name }}</RouterLink>
-      </li>
-    </ul>
-    <div class="logo-spacer"></div>
-    <ul class="link-items">
-      <li class="link-item" v-for="(l, idx) of rightLinks" :key="idx">
-        <RouterLink :to="l.url">{{ l.name }}</RouterLink>
-      </li>
-    </ul>
-    <LogoContainer :svg-url="'bitmap.svg'" :style="logoContStyle" />
-  </nav>
-  <div class="contacts-container">
-    <div class="social-media-container">
-      <IconAndName v-for="(i, idx) of socialMedia" :key="idx"
-       :icon-type="i.type" :icon-name="i.name" :text="i.text" />
-    </div>
-    <div></div>
-    <div class="numbers-container">
-      <IconAndName v-for="(i, idx) of numbers" :key="idx"
-       :icon-type="i.type" :icon-name="i.name" :text="i.text" />
+  <div class="navbar-container fixed">
+    <nav class="navbar central-logo-navbar">
+      <ul class="link-items">
+        <li class="link-item" v-for="(l, idx) of leftLinks" :key="idx">
+          <RouterLink :to="l.url">{{ l.name }}</RouterLink>
+        </li>
+      </ul>
+      <div class="logo-spacer"></div>
+      <ul class="link-items">
+        <li class="link-item" v-for="(l, idx) of rightLinks" :key="idx">
+          <RouterLink :to="l.url">{{ l.name }}</RouterLink>
+        </li>
+      </ul>
+      <LogoContainer :svg-url="'bitmap.svg'" :style="logoContStyle" />
+    </nav>
+    <div class="contacts-container">
+      <div class="social-media-container">
+        <IconAndName v-for="(i, idx) of socialMedia" :key="idx"
+        :icon-type="i.type" :icon-name="i.name" :text="i.text" />
+      </div>
+      <div></div>
+      <div class="numbers-container">
+        <IconAndName v-for="(i, idx) of numbers" :key="idx"
+        :icon-type="i.type" :icon-name="i.name" :text="i.text" />
+      </div>
     </div>
   </div>
 </template>
@@ -30,15 +32,15 @@
 import { CSSProperties, PropType } from 'vue';
 import LogoContainer from './LogoContainer.vue';
 import IconAndName from './IconAndName.vue';
+import NavLink from '@/types/NavLink.type';
+import IconInfo from '@/types/IconInfo';
 
 //* Defined.
-type NavLink = { name: string; url: string };
-type IconAndName = { type: string; name: string; text: string };
 const props = defineProps({
-  leftLinks: { type: Array as PropType<NavLink[]>, required: false },
-  rightLinks: { type: Array as PropType<NavLink[]>, required: false },
-  socialMedia: { type: Array as PropType<IconAndName[]> },
-  numbers: { type: Array as PropType<IconAndName[]> },
+  leftLinks: { type: Array as PropType<NavLink[]> },
+  rightLinks: { type: Array as PropType<NavLink[]> },
+  socialMedia: { type: Array as PropType<IconInfo[]> },
+  numbers: { type: Array as PropType<IconInfo[]> },
 });
 
 //* Variables.
@@ -57,6 +59,20 @@ $logo_w: 100px;
   display: grid;
   grid-template-columns: calc(50% - $logo_w/2) $logo_w calc(50% - $logo_w/2);
 }
+
+nav a.router-link-exact-active {
+  color: $secondary !important;
+}
+
+.fixed {
+  position: fixed;
+  left: 0;
+  right: 0;
+}
+
+.navbar-container {
+  z-index: 1000;
+}
 .contacts-container {
   padding: 0.5rem;
   background-color: rgba($color: rgb(46, 46, 46), $alpha: 0.7);
@@ -68,14 +84,10 @@ $logo_w: 100px;
     justify-content: space-around;
   }
 }
-nav a.router-link-exact-active {
-  color: $secondary !important;
-}
 .central-logo-navbar {
   height: 100px;
   background-color: rgba($color: #000000, $alpha: 0.5);
   padding: 1rem 4rem;
-  position: relative;
   @include setNavDisplay();
 
   .link-items {

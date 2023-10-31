@@ -1,18 +1,22 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div class="master-container">
+    <CentralLogoNavbar :left-links="left" :right-links="right" :social-media="social" :numbers="phones" />
+    <HeroSection />
+    <StarsSection />
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+<script lang="ts" setup>
+import CentralLogoNavbar from '@/components/CentralLogoNavbar.vue';
+import HeroSection from '@/components/HeroSection.vue';
 
-export default defineComponent({
-  name: 'HomeView',
-  components: {
-    HelloWorld,
-  },
-});
+import getLinksGroups from '@/functions/getLinksGroups.func';
+import j_links from '@/json/navLinks.json';
+import j_social from '@/json/social_media.json';
+import j_phones from '@/json/phones.json';
+import StarsSection from '@/components/StarsSection.vue';
+
+const { left, right } = getLinksGroups(j_links.links);
+const social = j_social.social_media;
+const phones = j_phones.phones;
 </script>

@@ -1,0 +1,36 @@
+//* l: lighter version, d: darker version.
+//* s: shadow version, t: transparent version.
+
+$text: #211003;
+$background: #fffaeb;
+$primary: #ed7a00;
+$secondary: #dd1212;
+$accent: #921d16;
+
+
+//* Screen sizes;
+$xsm: 500px;
+$sm: 640px;
+$md: 768px;
+$ml: 860px;
+$cml: 900px;
+$lg: 1024px;
+$clg: 1076px;
+$xl: 1280px;
+
+:root {
+  --y_pad: 3rem;
+  --x_pad: 1rem;
+}
+
+@media (min-width: $sm) {
+  :root {
+    --x_pad: 5rem;
+  }
+}
+
+@media (min-width: $md) {
+  :root {
+    --x_pad: 7rem;
+  }
+}
