@@ -1,0 +1,15 @@
+{
+  "phones": [
+    {
+      "type": "fa-solid",
+      "name": "fa-phone",
+      "text": "3112345678"
+    },
+
+    {
+      "type": "fa-solid",
+      "name": "fa-phone",
+      "text": "3325476980"
+    }
+  ]
+}

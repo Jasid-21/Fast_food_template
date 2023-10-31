@@ -1,0 +1,21 @@
+{
+  "social_media": [
+    {
+      "type": "fa-brands",
+      "name": "fa-twitter",
+      "text": "@twitter_acc"
+    },
+
+    {
+      "type": "fa-brands",
+      "name": "fa-whatsapp",
+      "text": "3112345678"
+    },
+
+    {
+      "type": "fa-brands",
+      "name": "fa-instagram",
+      "text": "@instagram_acc"
+    }
+  ]
+}
