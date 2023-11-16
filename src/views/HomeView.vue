@@ -5,6 +5,7 @@
     <StarsSection />
     <ServicesSection />
     <CatalogSection />
+    <MapSection />
   </div>
 </template>
 
@@ -19,6 +20,7 @@ import j_phones from '@/json/phones.json';
 import StarsSection from '@/components/StarsSection.vue';
 import ServicesSection from '@/components/ServicesSection.vue';
 import CatalogSection from '@/components/CatalogSection.vue';
+import MapSection from '@/components/MapSection.vue';
 
 const { left, right } = getLinksGroups(j_links.links);
 const social = j_social.social_media;
