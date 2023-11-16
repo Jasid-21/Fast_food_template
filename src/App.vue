@@ -19,6 +19,7 @@
 html, body {
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
 html {
@@ -31,7 +32,7 @@ body {
 }
 
 section {
-  padding: var(--y_pad) var(--x_pad);
+  padding: 130px var(--x_pad);
 }
 
 h1, h2, h3, h4, h5 {
@@ -59,5 +60,11 @@ nav a.router-link-exact-active {
 
 .link-item {
   cursor: pointer;
+}
+
+.section-title {
+  text-align: center;
+  margin: 0;
+  margin-bottom: 4rem;
 }
 </style>

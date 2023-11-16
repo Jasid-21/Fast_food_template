@@ -45,9 +45,10 @@ const props = defineProps({
 
 //* Variables.
 const logoContStyle:CSSProperties = {
-  maxWidth: '100px',
-  maxHeight: '150px',
+  maxWidth: '80px',
+  maxHeight: '100px',
   position: "absolute",
+  top: 0,
   left: '50%',
   translate: '-50% 0',
 }
@@ -85,7 +86,7 @@ nav a.router-link-exact-active {
   }
 }
 .central-logo-navbar {
-  height: 100px;
+  height: 80px;
   background-color: rgba($color: #000000, $alpha: 0.5);
   padding: 1rem 4rem;
   @include setNavDisplay();

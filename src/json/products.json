@@ -1,0 +1,129 @@
+{
+  "products": [
+    {
+      "name": "Basic Hamburguer",
+      "imgUrl": "burger sample.jpg",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic reiciendis at fugiat. Dolorum facere dolores eos quisquam nobis consequuntur quia repudiandae, placeat totam at quam maxime quod reiciendis natus ea!",
+      "prefered": true,
+      "price": 12.98,
+      "drink": false
+    },
+
+    {
+      "name": "Cherry pizza",
+      "imgUrl": "cherry pizza.jpg",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic reiciendis at fugiat. Dolorum facere dolores eos quisquam nobis consequuntur quia repudiandae, placeat totam at quam maxime quod reiciendis natus ea!",
+      "prefered": true,
+      "price": 12.98,
+      "drink": false
+    },
+
+    {
+      "name": "Cold Mojito",
+      "imgUrl": "cold mojito.jpg",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic reiciendis at fugiat. Dolorum facere dolores eos quisquam nobis consequuntur quia repudiandae, placeat totam at quam maxime quod reiciendis natus ea!",
+      "prefered": true,
+      "price": 12.98,
+      "drink": true
+    },
+
+    {
+      "name": "Fried eggs",
+      "imgUrl": "fried eggs.jpg",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic reiciendis at fugiat. Dolorum facere dolores eos quisquam nobis consequuntur quia repudiandae, placeat totam at quam maxime quod reiciendis natus ea!",
+      "prefered": true,
+      "price": 12.98,
+      "drink": false
+    },
+
+    {
+      "name": "Fried potatoes",
+      "imgUrl": "fried potatoes.jpg",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic reiciendis at fugiat. Dolorum facere dolores eos quisquam nobis consequuntur quia repudiandae, placeat totam at quam maxime quod reiciendis natus ea!",
+      "prefered": true,
+      "price": 12.98,
+      "drink": false
+    },
+
+    {
+      "name": "Ice cream",
+      "imgUrl": "ice cream.jpg",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic reiciendis at fugiat. Dolorum facere dolores eos quisquam nobis consequuntur quia repudiandae, placeat totam at quam maxime quod reiciendis natus ea!",
+      "prefered": true,
+      "price": 12.98,
+      "drink": false
+    },
+
+    {
+      "name": "Pizza rolls",
+      "imgUrl": "pizza rolls.jpg",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic reiciendis at fugiat. Dolorum facere dolores eos quisquam nobis consequuntur quia repudiandae, placeat totam at quam maxime quod reiciendis natus ea!",
+      "prefered": true,
+      "price": 12.98,
+      "drink": false
+    },
+
+    {
+      "name": "Basic Hamburguer",
+      "imgUrl": "burger sample.jpg",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic reiciendis at fugiat. Dolorum facere dolores eos quisquam nobis consequuntur quia repudiandae, placeat totam at quam maxime quod reiciendis natus ea!",
+      "prefered": false,
+      "price": 12.98,
+      "drink": false
+    },
+
+    {
+      "name": "Cherry pizza",
+      "imgUrl": "cherry pizza.jpg",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic reiciendis at fugiat. Dolorum facere dolores eos quisquam nobis consequuntur quia repudiandae, placeat totam at quam maxime quod reiciendis natus ea!",
+      "prefered": false,
+      "price": 12.98,
+      "drink": false
+    },
+
+    {
+      "name": "Cold Mojito",
+      "imgUrl": "cold mojito.jpg",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic reiciendis at fugiat. Dolorum facere dolores eos quisquam nobis consequuntur quia repudiandae, placeat totam at quam maxime quod reiciendis natus ea!",
+      "prefered": false,
+      "price": 12.98,
+      "drink": true
+    },
+
+    {
+      "name": "Fried eggs",
+      "imgUrl": "fried eggs.jpg",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic reiciendis at fugiat. Dolorum facere dolores eos quisquam nobis consequuntur quia repudiandae, placeat totam at quam maxime quod reiciendis natus ea!",
+      "prefered": false,
+      "price": 12.98,
+      "drink": false
+    },
+
+    {
+      "name": "Fried potatoes",
+      "imgUrl": "fried potatoes.jpg",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic reiciendis at fugiat. Dolorum facere dolores eos quisquam nobis consequuntur quia repudiandae, placeat totam at quam maxime quod reiciendis natus ea!",
+      "prefered": false,
+      "price": 12.98,
+      "drink": false
+    },
+
+    {
+      "name": "Ice cream",
+      "imgUrl": "ice cream.jpg",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic reiciendis at fugiat. Dolorum facere dolores eos quisquam nobis consequuntur quia repudiandae, placeat totam at quam maxime quod reiciendis natus ea!",
+      "prefered": false,
+      "price": 12.98,
+      "drink": false
+    },
+
+    {
+      "name": "Pizza rolls",
+      "imgUrl": "pizza rolls.jpg",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic reiciendis at fugiat. Dolorum facere dolores eos quisquam nobis consequuntur quia repudiandae, placeat totam at quam maxime quod reiciendis natus ea!",
+      "prefered": false,
+      "price": 12.98,
+      "drink": false
+    }
+  ]
+}

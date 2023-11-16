@@ -1,0 +1,33 @@
+{
+  "services": [
+    {
+      "name": "Quality Care",
+      "imgUrl": "attention.jpg",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi debitis fugiat iusto illum nemo quisquam quia ea veritatis sunt, quas quod voluptatum sit fugit impedit expedita, maxime itaque veniam obcaecati."
+    },
+
+    {
+      "name": "Space for friends",
+      "imgUrl": "friends.jpg",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, ex molestias labore accusamus reiciendis quis voluptatem nostrum vero quisquam veniam officia odio eligendi obcaecati animi, unde ipsa. Nam, quaerat repellendus."
+    },
+
+    {
+      "name": "Cozy spaces",
+      "imgUrl": "cozy.jpg",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, ex molestias labore accusamus reiciendis quis voluptatem nostrum vero quisquam veniam officia odio eligendi obcaecati animi, unde ipsa. Nam, quaerat repellendus."
+    },
+
+    {
+      "name": "Delicious food",
+      "imgUrl": "food.jpg",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, necessitatibus impedit. Sequi modi laborum deleniti odio molestias nostrum provident harum deserunt quis dicta quasi odit ducimus laudantium amet, ratione vero!"
+    },
+
+    {
+      "name": "Fresh Air spaces",
+      "imgUrl": "fresh_air.jpg",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates error et ipsa debitis laboriosam omnis qui autem magnam unde totam ex, vitae, consequuntur amet accusantium. Sapiente veniam porro corporis in?"
+    }
+  ]
+}

@@ -9,7 +9,7 @@
       </div>
     </div>
 
-    <SectionNavBtn next-section="#stars-section" />
+    <SectionNavBtn next-section="#starsSection" :z-index="999" />
   </section>
 </template>
 

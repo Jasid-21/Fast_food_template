@@ -1,14 +1,21 @@
 //* l: lighter version, d: darker version.
 //* s: shadow version, t: transparent version.
 
-$text: #211003;
+//* Colors.
+$text: #311906;
+$l_text: #806f60;
 $background: #fffaeb;
+$background2: #ecdaa9;
 $primary: #ed7a00;
+$l_primary: #ecc9a4;
+$d_primary: #683600;
 $secondary: #dd1212;
+$d_secondary: #570808;
 $accent: #921d16;
+$accent2: #751814;
 
 
-//* Screen sizes;
+//* Screen sizes.
 $xsm: 500px;
 $sm: 640px;
 $md: 768px;
@@ -18,11 +25,32 @@ $lg: 1024px;
 $clg: 1076px;
 $xl: 1280px;
 
+//* Mixins.
+@mixin inputStyle($borders-color) {
+  width: 100%;
+  height: 25px;
+
+  border-radius: 6px;
+  border: 1px solid $borders-color;
+  color: $d_secondary;
+  padding: 0.5rem;
+
+  &:focus {
+    outline-offset: -2px;
+    outline-width: 2px;
+    outline-color: $borders-color;
+    outline-style: solid;
+  }
+}
+
+//* Root variables.
 :root {
   --y_pad: 3rem;
   --x_pad: 1rem;
 }
 
+
+//* Media queries.
 @media (min-width: $sm) {
   :root {
     --x_pad: 5rem;
