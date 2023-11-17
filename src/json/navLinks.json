@@ -1,8 +1,9 @@
 {
   "links": [
-    { "name": "Home", "url": "/" },
-    { "name": "Catalog", "url": "/catalog" },
-    { "name": "About", "url": "/about" },
-    { "name": "Services", "url": "/services" }
+    { "name": "Home", "url": "#top" },
+    { "name": "Bests", "url": "#starsSection" },
+    { "name": "Services", "url": "#services-section" },
+    { "name": "Catalog", "url": "#catalog-section" },
+    { "name": "Location", "url": "#map-section" }
   ]
 }

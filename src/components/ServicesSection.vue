@@ -1,5 +1,5 @@
 <template>
-  <section class="services-section">
+  <section class="services-section" id="services-section">
     <h2 class="section-title">What we offer?</h2>
     <ServiceDisplayer :shadow="true" :reverse="idx%2 != 0"
       v-for="(s, idx) of services" :key="idx"
@@ -8,7 +8,6 @@
 </template>
 
 <script setup lang="ts">
-import BackgroundScreen from './BackgroundScreen.vue';
 import ServiceDisplayer from './ServiceDisplayer.vue';
 import j_services from '@/json/services.json';
 

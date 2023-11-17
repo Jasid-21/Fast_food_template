@@ -1,19 +1,18 @@
 <template>
-  <section class="catalog-section">
+  <section class="catalog-section" id="catalog-section">
     <h2 class="section-title">Our catalog</h2>
     <form class="filter-form">
-      <FreeTitleInput title="Name" />
-      <FreeTitleInput title="Price" />
+      <FreeTitleInput title="Name" @send-to-parent="(v: string) => name = v" />
       <select id="type" class="filter-input">
         <option value="__none__">Type</option>
       </select>
       <div class="price-range-container">
-        <input type="number" id="minp" class="filter-input" placeholder="Min">
-        <input type="number" id="maxp" class="filter-input" placeholder="Max">
+        <input type="number" id="minp" class="filter-input" placeholder="Min" v-model="minP">
+        <input type="number" id="maxp" class="filter-input" placeholder="Max" v-model="maxP">
       </div>
     </form>
     <div class="displayer">
-      <div class="product-item" v-for="(i, idx) of products"
+      <div class="product-item" v-for="(i, idx) of applyFilter()"
         :key="idx" @click="openProductModal(i)">
         <img :src="require('@/assets/images/samples/' + i.imgUrl)"
           :alt="i.name" class="product-img">
@@ -32,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import j_products from '@/json/products.json';
 import Product from '@/types/Product.type';
 import useModalState from '@/stores/modalState';
@@ -42,14 +41,31 @@ import ProductModal from './ProductModal.vue';
 
 //* Defined.
 const modalState = useModalState();
-const products:Product[] = j_products.products;
+const original_products:Product[] = j_products.products;
+const products: Product[] = [...original_products];
+
 const name = ref<string>('');
-const price = ref<number>(0);
+const minP = ref<number>(0);
+const maxP = ref<number>(Infinity);
 
 //* Functions.
 const openProductModal = (product: Product) => {
   modalState.setProduct(product);
 }
+
+const applyFilter = (): Product[] => {
+  const byName = name.value.trim()?
+    products.filter((p) => p.name.toLowerCase().includes(name.value.toLowerCase()))
+    :products;
+  const byPrice = byName.filter((p) => p.price >= minP.value && p.price <= maxP.value);
+
+  return byPrice;
+}
+
+//* Hooks.
+watch(name, (newV, oldV) => {
+  console.log(newV);
+});
 </script>
 
 <style scoped lang="scss">
@@ -72,7 +88,7 @@ const openProductModal = (product: Product) => {
 
     display: grid;
     column-gap: 1rem;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
 
     .filter-input {
       @include inputStyle($secondary);
@@ -109,6 +125,7 @@ const openProductModal = (product: Product) => {
 
       position: relative;
       overflow: hidden;
+      cursor: pointer;
 
       .product-img {
         width: 100% !important;

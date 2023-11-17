@@ -6,6 +6,7 @@
     <ServicesSection />
     <CatalogSection />
     <MapSection />
+    <FooterSection />
   </div>
 </template>
 
@@ -21,6 +22,7 @@ import StarsSection from '@/components/StarsSection.vue';
 import ServicesSection from '@/components/ServicesSection.vue';
 import CatalogSection from '@/components/CatalogSection.vue';
 import MapSection from '@/components/MapSection.vue';
+import FooterSection from '@/components/FooterSection.vue';
 
 const { left, right } = getLinksGroups(j_links.links);
 const social = j_social.social_media;

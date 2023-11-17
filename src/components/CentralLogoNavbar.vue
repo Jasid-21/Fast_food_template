@@ -3,13 +3,13 @@
     <nav class="navbar central-logo-navbar">
       <ul class="link-items">
         <li class="link-item" v-for="(l, idx) of leftLinks" :key="idx">
-          <RouterLink :to="l.url">{{ l.name }}</RouterLink>
+          <a :href="l.url">{{ l.name }}</a>
         </li>
       </ul>
       <div class="logo-spacer"></div>
       <ul class="link-items">
         <li class="link-item" v-for="(l, idx) of rightLinks" :key="idx">
-          <RouterLink :to="l.url">{{ l.name }}</RouterLink>
+          <a :href="l.url">{{ l.name }}</a>
         </li>
       </ul>
       <LogoContainer :svg-url="'bitmap.svg'" :style="logoContStyle" />
