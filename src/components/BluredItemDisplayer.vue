@@ -30,6 +30,10 @@ const index = computed(() => productsStore.getIndex);
   align-items: center;
   column-gap: 0.75rem;
 
+  @media (max-width: $ml) {
+    flex-direction: column;
+  }
+
   .result-image-container {
     padding: 0.5rem;
     position: relative;

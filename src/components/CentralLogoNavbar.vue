@@ -1,37 +1,37 @@
 <template>
   <div class="navbar-container fixed">
-    <nav class="navbar central-logo-navbar">
-      <ul class="link-items">
-        <li class="link-item" v-for="(l, idx) of leftLinks" :key="idx">
-          <a :href="l.url">{{ l.name }}</a>
+    <nav class="links-container">
+      <ul class="link-items-container" v-if="leftLinks"
+        :style="{ gridTemplateColumns: `repeat(${leftLinks?.length}, ${100 / leftLinks?.length}%)` }">
+        <li class="link-item" v-for="(i, idx) of leftLinks">
+          <a :href="i.url">{{ i.name }}</a>
         </li>
       </ul>
-      <div class="logo-spacer"></div>
-      <ul class="link-items">
-        <li class="link-item" v-for="(l, idx) of rightLinks" :key="idx">
-          <a :href="l.url">{{ l.name }}</a>
+      <div class="logo-container">
+        <LogoContainer svg-url="bitmap.svg" />
+      </div>
+      <ul class="link-items-container" v-if="rightLinks"
+        :style="{ gridTemplateColumns: `repeat(${rightLinks?.length}, ${100 / rightLinks?.length}%)` }">
+        <li class="link-item" v-for="(i, idx) of rightLinks">
+          <a :href="i.url">{{ i.name }}</a>
         </li>
       </ul>
-      <LogoContainer :svg-url="'bitmap.svg'" :style="logoContStyle" />
+      <ul class="complete-links" v-if="completeLinks"
+        :style="{ gridTemplateColumns: `repeat(${completeLinks?.length}, ${100 / completeLinks?.length}%)` }">
+        <li class="link-item" v-for="(i, idx) of completeLinks">
+          <a :href="i.url">{{ i.name }}</a>
+        </li>
+      </ul>
+      <button class="menu-btn">
+        <fai icon="fa-solid fa-bars" />
+      </button>
     </nav>
-    <div class="contacts-container">
-      <div class="social-media-container">
-        <IconAndName v-for="(i, idx) of socialMedia" :key="idx"
-        :icon-type="i.type" :icon-name="i.name" :text="i.text" />
-      </div>
-      <div></div>
-      <div class="numbers-container">
-        <IconAndName v-for="(i, idx) of numbers" :key="idx"
-        :icon-type="i.type" :icon-name="i.name" :text="i.text" />
-      </div>
-    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { CSSProperties, PropType } from 'vue';
+import { PropType, ref } from 'vue';
 import LogoContainer from './LogoContainer.vue';
-import IconAndName from './IconAndName.vue';
 import NavLink from '@/types/NavLink.type';
 import IconInfo from '@/types/IconInfo';
 
@@ -42,16 +42,15 @@ const props = defineProps({
   socialMedia: { type: Array as PropType<IconInfo[]> },
   numbers: { type: Array as PropType<IconInfo[]> },
 });
+const completeLinks:NavLink[] = [
+  ...props.leftLinks?props.leftLinks:[],
+  ...props.rightLinks?props.rightLinks:[],
+];
 
-//* Variables.
-const logoContStyle:CSSProperties = {
-  maxWidth: '80px',
-  maxHeight: '100px',
-  position: "absolute",
-  top: 0,
-  left: '50%',
-  translate: '-50% 0',
-}
+const completeContacts: IconInfo[] = [
+  ...props.socialMedia?props.socialMedia:[],
+  ...props.numbers?props.numbers:[],
+];
 </script>
 
 <style scoped lang="scss">
@@ -72,69 +71,108 @@ nav a.router-link-exact-active {
 }
 
 .navbar-container {
+  $logo_w: 80px;
   z-index: 1000;
-}
-.contacts-container {
-  padding: 0.5rem;
-  background-color: rgba($color: rgb(46, 46, 46), $alpha: 0.7);
-  color: white;
-  @include setNavDisplay();
 
-  .social-media-container, .numbers-container {
-    display: flex;
-    justify-content: space-around;
-  }
-}
-.central-logo-navbar {
-  height: 80px;
-  background-color: rgba($color: #000000, $alpha: 0.5);
-  padding: 1rem 4rem;
-  @include setNavDisplay();
+  nav.links-container {
+    height: 100px;
+    padding: 1rem var(--x_pad);
+    background-color: rgba($color: #000000, $alpha: 0.5);
 
-  .link-items {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-    column-gap: 1rem;
+    display: grid;
+    grid-template-columns: calc((100% - $logo_w) / 2) $logo_w calc((100% - $logo_w) / 2);
 
-    .link-item {
-      width: 100%;
-      height: 100%;
-      text-align: center;
-      padding: 1rem;
-      cursor: pointer;
+    ul.link-items-container, ul.complete-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
 
-      transition-property: background-color;
-      transition-duration: 180ms;
+      display: grid;
 
-      a {
-        font-weight: 700;
+      li.link-item {
+        width: auto;
+        height: 100%;
         color: white;
-        text-decoration: none;
 
-        transition-property: color;
-        transition-duration: 180ms;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+          background-color: black;
+          color: $accent;
+        }
+
+        a {
+          font-weight: 600;
+          color: inherit;
+          text-decoration: none;
+        }
       }
     }
 
-    .link-item:hover {
-      background-color: rgba($color: #000000, $alpha: 0.7);
-      a {
-        color: $secondary;
+    ul.complete-links {
+      display: none;
+    }
+
+    .logo-container {
+      position: relative;
+
+      & > * {
+        width: 100%;
+
+        top: -1rem;
+        position: absolute;
+      }
+    }
+
+    .menu-btn {
+      display: none;
+      width: 34px;
+      height: 34px;
+      background-color: transparent;
+      border: 2px solid white;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: white;
+    }
+
+    @media (max-width: $md) {
+      grid-template-columns: $logo_w auto;
+
+      ul.link-items-container {
+        display: none;
+      }
+
+      ul.complete-links {
+        display: grid;
+      }
+
+      .logo-container {
+        grid-column: 1/2;
+      }
+    }
+
+    @media (max-width: $csm) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .logo-container {
+        align-self: flex-start;
+        width: $logo_w;
+      }
+
+      ul.link-items-container,
+      ul.complete-links {
+        display: none;
+      }
+      .menu-btn {
+        display: block;
       }
     }
   }
-
-  .logo-spacer {
-    width: $logo_w;
-  }
-}
-
-.central-logo-navbar.fixed {
-  position: fixed;
-  left: 0;
-  right: 0;
 }
 </style>

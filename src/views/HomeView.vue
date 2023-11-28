@@ -1,12 +1,16 @@
 <template>
   <div class="master-container">
-    <CentralLogoNavbar :left-links="left" :right-links="right" :social-media="social" :numbers="phones" />
+    <CentralLogoNavbar :left-links="left" :right-links="right"
+      :social-media="social" :numbers="phones" />
+
     <HeroSection />
     <StarsSection />
+    <!--
     <ServicesSection />
     <CatalogSection />
     <MapSection />
     <FooterSection />
+    -->
   </div>
 </template>
 

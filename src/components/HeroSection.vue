@@ -53,22 +53,45 @@ import SectionNavBtn from '@/components/SectionNavBtn.vue';
         font-size: 1.25rem;
         font-style: italic;
       }
+
+      @media (max-width: $md) {
+        text-align: center;
+      }
     }
 
     .main-slogan-container {
-      width: 500px;
+      width: 100%;
+      max-width: 500px;
       height: 200px;
       top: 50%;
       right: var(--x_pad);
       translate: 0 -50%;
+
+      @media (max-width: $md) {
+        right: auto;
+        left: 50%;
+        translate: -50% -50%;
+      }
+
+      @media (max-width: $xsm) {
+        h2.slogan {
+          font-size: 3rem;
+        }
+      }
     }
 
     .subslogan-container {
-      width: 400px;
+      width: 100%;
+      max-width: 400px;
       height: 150px;
       top: 50%;
       left: var(--x_pad);
       translate: 0 50%;
+
+      @media (max-width: $md) {
+        left: 50%;
+        translate: -50% 50%;
+      }
     }
   }
 }
