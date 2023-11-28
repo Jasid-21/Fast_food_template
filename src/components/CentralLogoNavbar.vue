@@ -72,7 +72,7 @@ nav a.router-link-exact-active {
 
 .navbar-container {
   $logo_w: 80px;
-  z-index: 1000;
+  z-index: 1001;
 
   nav.links-container {
     height: 100px;

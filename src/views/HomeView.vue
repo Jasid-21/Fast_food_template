@@ -7,8 +7,8 @@
     <StarsSection />
     <ServicesSection />
     <CatalogSection />
-    <!--
     <MapSection />
+    <!--
     <FooterSection />
     -->
   </div>

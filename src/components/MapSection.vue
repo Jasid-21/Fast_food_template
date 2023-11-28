@@ -27,7 +27,7 @@
 
 <script setup lang="ts">
 import 'leaflet/dist/leaflet.css';
-import { LMap, LTileLayer, LMarker } from '@vue-leaflet/vue-leaflet';
+import { LMap, LTileLayer, LMarker, LControlZoom } from '@vue-leaflet/vue-leaflet';
 import { ref } from 'vue';
 
 const zoom = ref<number>(17);
@@ -41,6 +41,10 @@ const latLng = ref<number[]>([10.993161, -74.816570]);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
+  .leaflet-control-zoom {
+    display: none !important;
+  }
 }
 
 .address-info-container {
