@@ -1,7 +1,10 @@
 <template>
   <div class="service-displayer" :class="{ shadow, reverse }">
-    <img :src="require('../assets/images/services/' + imgUrl)"
-     alt="Service image" class="service-img">
+    <div class="service-img-container">
+      <img :src="require('../assets/images/services/' + imgUrl)"
+        alt="Service image" class="service-img">
+    </div>
+
     <div class="info-container">
       <h3 class="service-title">{{ title }}</h3>
       <p class="service-description">
@@ -30,12 +33,37 @@ $radius: 10px;
   margin-bottom: 2rem;
   background-color: $l_primary;
   border-radius: $radius;
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: auto auto;
 
-  .service-img {
-    max-height: 280px;
-    border-radius: $radius 0 0 $radius;
+  @media (max-width: $ml) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .service-img-container {
+    width: 400px;
+    height: 100%;
+
+    .service-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: $radius 0 0 $radius;
+    }
+
+    @media (max-width: $lg) {
+      width: 350px;
+    }
+
+    @media (max-width: $ml) {
+      width: 100%;
+      height: 260px;
+
+      .service-img {
+        border-radius: $radius $radius 0 0;
+      }
+    }
   }
 
   .info-container {
