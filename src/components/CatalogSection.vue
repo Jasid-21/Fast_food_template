@@ -3,14 +3,16 @@
     <h2 class="section-title">Our catalog</h2>
     <form class="filter-form">
       <FreeTitleInput title="Name" @send-to-parent="(v: string) => name = v" />
-      <select id="type" class="filter-input">
+      <select id="type" class="filter-input" v-model="type">
         <option value="__none__">Type</option>
+        <option :value="t" v-for="(t, idx) of types" :key="idx">{{ t }}</option>
       </select>
       <div class="price-range-container">
         <input type="number" id="minp" class="filter-input" placeholder="Min" v-model="minP">
         <input type="number" id="maxp" class="filter-input" placeholder="Max" v-model="maxP">
       </div>
     </form>
+
     <div class="displayer">
       <div class="product-item" v-for="(i, idx) of applyFilter()"
         :key="idx" @click="openProductModal(i)">
@@ -18,7 +20,7 @@
           :alt="i.name" class="product-img">
         <div class="info-layer">
           <h4 class="product-name">{{ i.name }}</h4>
-          <span class="product-type">{{ i.drink?'Drink':'Food' }}</span>
+          <span class="product-type">{{ i.type }}</span>
           <span class="product-price important">${{ i.price }}</span>
         </div>
       </div>
@@ -32,6 +34,7 @@
 
 <script setup lang="ts">
 import { ref, watch } from 'vue';
+import j_types from '@/json/productTypes.json';
 import j_products from '@/json/products.json';
 import Product from '@/types/Product.type';
 import useModalState from '@/stores/modalState';
@@ -43,10 +46,12 @@ import ProductModal from './ProductModal.vue';
 const modalState = useModalState();
 const original_products:Product[] = j_products.products;
 const products: Product[] = [...original_products];
+const types: string[] = j_types.types;
 
 const name = ref<string>('');
 const minP = ref<number>(0);
 const maxP = ref<number>(Infinity);
+const type = ref<string>('__none__');
 
 //* Functions.
 const openProductModal = (product: Product) => {
@@ -58,13 +63,22 @@ const applyFilter = (): Product[] => {
     products.filter((p) => p.name.toLowerCase().includes(name.value.toLowerCase()))
     :products;
   const byPrice = byName.filter((p) => p.price >= minP.value && p.price <= maxP.value);
+  const byType = type.value == '__none__'?byPrice:byPrice.filter((p) => p.type == type.value);
 
-  return byPrice;
+  return byType;
 }
 
 //* Hooks.
 watch(name, (newV, oldV) => {
   console.log(newV);
+});
+
+watch(minP, (newV, oldV) => {
+  if (!newV.toString().trim()) minP.value = 0;
+});
+
+watch(maxP, (newV, oldV) => {
+  if (!newV.toString().trim()) maxP.value = Infinity;
 });
 </script>
 
@@ -74,14 +88,12 @@ watch(name, (newV, oldV) => {
 
   display: flex;
   flex-direction: column;
+  align-items: center;
   row-gap: 1rem;
 
-  & > * {
-    margin-left: 5rem;
-    margin-right: 5rem;
-  }
-
   .filter-form {
+    width: 100%;
+    max-width: 600px;
     padding: 1rem;
     border: 1px solid $d_secondary;
     border-radius: 10px;
@@ -108,6 +120,7 @@ watch(name, (newV, oldV) => {
 
   .displayer {
     padding: 1rem;
+    border-top: 1px solid gray;
 
     display: flex;
     column-gap: 1rem;

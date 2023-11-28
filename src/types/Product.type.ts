@@ -4,7 +4,7 @@ type Product = {
   desc: string;
   prefered: boolean;
   price: number;
-  drink: boolean;
+  type: string;
   initX?: number;
   initY?: number;
 };

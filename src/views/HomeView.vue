@@ -6,8 +6,8 @@
     <HeroSection />
     <StarsSection />
     <ServicesSection />
-    <!--
     <CatalogSection />
+    <!--
     <MapSection />
     <FooterSection />
     -->
