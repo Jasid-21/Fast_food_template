@@ -23,7 +23,7 @@ import { ref } from 'vue';
 
 //* Defined.
 const props = defineProps({
-  active: { type: Boolean, default: true },
+  active: { type: Boolean, default: false },
 });
 const emit = defineEmits(['close-drawer']);
 const links: NavLink[] = j_links.links;

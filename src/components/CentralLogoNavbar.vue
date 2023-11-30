@@ -48,7 +48,7 @@ const completeLinks:NavLink[] = [
   ...props.leftLinks?props.leftLinks:[],
   ...props.rightLinks?props.rightLinks:[],
 ];
-const active_drawer = ref<boolean>(true);
+const active_drawer = ref<boolean>(false);
 
 //* Functions.
 const openDrawer = () => {
@@ -137,13 +137,21 @@ nav a.router-link-exact-active {
       display: none;
       width: 34px;
       height: 34px;
+
       background-color: transparent;
       border: 2px solid white;
       border-radius: 8px;
+      transition: all 180ms ease;
+
       text-align: center;
       font-weight: 700;
       font-size: 1.2rem;
       color: white;
+
+      &:focus, &:hover {
+        color: $primary;
+        border: 2px solid $primary;
+      }
     }
 
     @media (max-width: $md) {
