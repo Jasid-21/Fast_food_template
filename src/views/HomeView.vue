@@ -8,9 +8,8 @@
     <ServicesSection />
     <CatalogSection />
     <MapSection />
-    <!--
+    <HoursSection />
     <FooterSection />
-    -->
   </div>
 </template>
 
@@ -27,6 +26,7 @@ import ServicesSection from '@/components/ServicesSection.vue';
 import CatalogSection from '@/components/CatalogSection.vue';
 import MapSection from '@/components/MapSection.vue';
 import FooterSection from '@/components/FooterSection.vue';
+import HoursSection from '@/components/HoursSection.vue';
 
 const { left, right } = getLinksGroups(j_links.links);
 const social = j_social.social_media;

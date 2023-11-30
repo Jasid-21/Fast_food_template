@@ -1,6 +1,8 @@
 <template>
   <div class="modal-container" v-if="showing">
-    <slot></slot>
+    <Transition>
+      <slot></slot>
+    </Transition>
   </div>
 </template>
 

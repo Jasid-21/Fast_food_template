@@ -31,7 +31,7 @@ body {
   font-weight: 400;
 }
 
-section {
+section, footer {
   padding: 130px var(--x_pad);
 }
 

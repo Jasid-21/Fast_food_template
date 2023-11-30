@@ -14,7 +14,7 @@
         </div>
         <div class="info-layer">
           <div class="details-container">
-            <span class="type">{{ activeProduct?.drink?'Dring':'Food' }}</span>
+            <span class="type">{{ activeProduct?.type }}</span>
             <span class="price">${{ activeProduct?.price }}</span>
           </div>
           <p class="description">{{ activeProduct?.desc }}</p>

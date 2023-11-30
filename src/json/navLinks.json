@@ -4,6 +4,7 @@
     { "name": "Bests", "url": "#starsSection" },
     { "name": "Services", "url": "#services-section" },
     { "name": "Catalog", "url": "#catalog-section" },
-    { "name": "Location", "url": "#map-section" }
+    { "name": "Location", "url": "#map-section" },
+    { "name": "Contact", "url": "#contact-section" }
   ]
 }

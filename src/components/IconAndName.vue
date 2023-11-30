@@ -1,15 +1,17 @@
 <template>
   <div class="icon-container">
-    <fai :icon="[iconType, iconName]" />
-    <span class="icon-name">{{ text }}</span>
+    <fai :icon="[icon.type, icon.name]" />
+    <span class="icon-name" v-if="!icon.link">{{ icon.text }}</span>
+    <a :href="icon.link" v-else>{{ icon.text }}</a>
   </div>
 </template>
 
 <script setup lang="ts">
+import IconInfo from '@/types/IconInfo';
+import { PropType } from 'vue';
+
 const props = defineProps({
-  iconType: { type: String, required: true },
-  iconName: { type: String, required: true },
-  text: { type: String, required: true },
+  icon: { type: Object as PropType<IconInfo>, required: true },
 });
 </script>
 
@@ -21,7 +23,13 @@ const props = defineProps({
 
   .icon-name {
     font-weight: 500;
-    font-size: 0.75rem;
+    font-size: 1rem;
+  }
+
+  span, a {
+    color: $text;
+    color: inherit;
+    text-decoration: none;
   }
 }
 </style>

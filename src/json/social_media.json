@@ -3,19 +3,22 @@
     {
       "type": "fa-brands",
       "name": "fa-twitter",
-      "text": "@twitter_acc"
+      "text": "@twitter_acc",
+      "link": "#"
     },
 
     {
       "type": "fa-brands",
       "name": "fa-whatsapp",
-      "text": "3112345678"
+      "text": "3112345678",
+      "link": "#"
     },
 
     {
       "type": "fa-brands",
       "name": "fa-instagram",
-      "text": "@instagram_acc"
+      "text": "@instagram_acc",
+      "link": "#"
     }
   ]
 }
