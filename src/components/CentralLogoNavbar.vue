@@ -8,7 +8,7 @@
         </li>
       </ul>
       <div class="logo-container">
-        <LogoContainer svg-url="bitmap.svg" />
+        <LogoContainer svg-url="bitmap.svg" bussiness="Burger Master" />
       </div>
       <ul class="link-items-container" v-if="rightLinks"
         :style="{ gridTemplateColumns: `repeat(${rightLinks?.length}, ${100 / rightLinks?.length}%)` }">
