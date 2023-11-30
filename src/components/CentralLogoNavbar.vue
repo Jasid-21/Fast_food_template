@@ -22,10 +22,11 @@
           <a :href="i.url">{{ i.name }}</a>
         </li>
       </ul>
-      <button class="menu-btn">
+      <button class="menu-btn" @click="openDrawer">
         <fai icon="fa-solid fa-bars" />
       </button>
     </nav>
+    <NavDrawer :active="active_drawer" @close-drawer="closeDrawer" />
   </div>
 </template>
 
@@ -34,6 +35,7 @@ import { PropType, ref } from 'vue';
 import LogoContainer from './LogoContainer.vue';
 import NavLink from '@/types/NavLink.type';
 import IconInfo from '@/types/IconInfo';
+import NavDrawer from './NavDrawer.vue';
 
 //* Defined.
 const props = defineProps({
@@ -46,11 +48,16 @@ const completeLinks:NavLink[] = [
   ...props.leftLinks?props.leftLinks:[],
   ...props.rightLinks?props.rightLinks:[],
 ];
+const active_drawer = ref<boolean>(true);
 
-const completeContacts: IconInfo[] = [
-  ...props.socialMedia?props.socialMedia:[],
-  ...props.numbers?props.numbers:[],
-];
+//* Functions.
+const openDrawer = () => {
+  active_drawer.value = true;
+}
+
+const closeDrawer = () => {
+  active_drawer.value = false;
+}
 </script>
 
 <style scoped lang="scss">
