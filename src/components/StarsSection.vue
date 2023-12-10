@@ -26,11 +26,10 @@ import CircularCarousel from '@/components/CircularCarousel.vue';
   display: grid;
   grid-template-rows: min-content auto;
   grid-template-columns: 70% calc(30% - 1rem);
-  column-gap: 1rem;
-  row-gap: 1rem;
+  gap: 1rem;
 
   @media (max-width: $lg) {
-    grid-template-rows: auto auto auto;
+    grid-template-rows: auto auto;
     grid-template-columns: 1fr;
   }
 
@@ -44,9 +43,7 @@ import CircularCarousel from '@/components/CircularCarousel.vue';
     position: relative;
 
     @media (max-width: $lg) {
-      & > * {
-        display: none;
-      }
+      display: none;
     }
   }
 }

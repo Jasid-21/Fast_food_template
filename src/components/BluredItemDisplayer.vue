@@ -41,6 +41,11 @@ const index = computed(() => productsStore.getIndex);
       width: 300px;
       height: 300px;
       border-radius: 50%;
+
+      @media (max-width: $lg) {
+        width: 250px;
+        height: 250px;
+      }
     }
 
     .result-border-blur {
